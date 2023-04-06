@@ -9,6 +9,13 @@ public class Jogador {
         this.role = role;
     }
 
+    //peguei da MatchManager
+
+    @Override
+    public String toString() {
+        return "ID: " + id + ", Role: " + role + ", Habilidade: " + rating;
+    }
+
     public int getID() {
         return ID;
     }
@@ -31,5 +38,12 @@ public class Jogador {
 
     public void setRole(String role) {
         this.role = role;
+    }
+    public void credenciaisJogador(){
+        Utils.print("Olá, bem vindo ao O jogo, digite suas credenciais de jogador para começar uma partida:\n");
+        Utils.print("Habilidade: ");
+        setRating(Utils.scanLine());
+        Utils.print("Role: ");
+        setRole(Utils.scanLine();)
     }
 }

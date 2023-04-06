@@ -18,7 +18,7 @@ public class MatchmakingAlgorithm {
             this.pontuacaoHabilidade = pontuacaoHabilidade;
             this.pontuacaoComportamento = pontuacaoComportamento;
         }
-        
+        @Override
         public String toString() {
             return "ID: " + id + ", Role: " + role + ", Habilidade: " + pontuacaoHabilidade + ", Comportamento: " + pontuacaoComportamento;
         }
