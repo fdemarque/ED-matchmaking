@@ -1,29 +1,29 @@
 public class NoDuplamente{
-   //private double valor;
-   private NoDuplo anterior;
-   private NoDuplo proximo;
+   private Jogador jogador;
+   private NoDuplamente anterior;
+   private NoDuplamente proximo;
    
-  /* public void setValor(double valor){
-      this.valor = valor;
+  public void setJogador(Jogador jogador){
+      this.jogador = jogador;
    }
    
-   public double getValor(){
-      return this.valor;
-   }*/
+   public Jogador getJogador(){
+      return this.jogador;
+   }
    
-   public NoDuplo getAnterior(){
+   public NoDuplamente getAnterior(){
       return this.anterior;
    }
    
-   public NoDuplo getProximo(){
+   public NoDuplamente getProximo(){
       return this.proximo;
    }
    
-   public void setAnterior(NoDuplo anterior){
+   public void setAnterior(NoDuplamente anterior){
       this.anterior = anterior;
    }
    
-   public void setProximo(NoDuplo proximo){
+   public void setProximo(NoDuplamente proximo){
       this.proximo = proximo;
    }
    

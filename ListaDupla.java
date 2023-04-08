@@ -12,9 +12,9 @@ public class ListaDupla{
       cauda.setAnterior(cabeca);
    }
    
-   public void add(Class valor){
+   public void add(Jogador novoJogador){
       NoDuplamente novoNo = new NoDuplamente();
-      novoNo.setValor(valor);
+      novoNo.setJogador(novoJogador);
       novoNo.setAnterior(cabeca);
       novoNo.setProximo(cabeca.getProximo());
       
@@ -23,9 +23,33 @@ public class ListaDupla{
       tamanho++;
    }
    
+   public void exibirTodos(){
+      NoDuplamente atual = cabeca;
+      for(int i = 0; i != tamanho; i++){
+      atual = atual.getProximo();
+      System.out.println(atual.getJogador());
+      }
+   }
+   
+   
+  /* public NoDuplamente getAt(int indiceProcurado){
+      if(indiceProcurado > tamanho){
+         System.out.println("Voce sabe contar");
+         return cabeca;
+      }else{
+         int indicePercorrido = 0;
+         NoDuplamente atual = cabeca;
+         while(indicePercorrido != indiceProcurado){
+            atual = atual.getProximo();
+            indicePercorrido++;
+         }
+         return atual;
+      }
+    }
+
   
    
-   /*public void addLast(double valor){
+   public void addLast(double valor){
       NoDuplamente novoNo = new NoDuplamente();
       novoNo.setValor(valor);
       novoNo.setProximo(cauda);

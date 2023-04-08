@@ -1,26 +1,41 @@
+import java.util.Scanner;
 import java.util.*;
 import java.io.*;
 
-public class abstract Utils{
+public abstract class Utils{
     
-    Scanner scan = new Scanner(System.in);
+    private static Scanner scan = new Scanner(System.in);
 
-    public static print(String mensagem){
-        System.out.print(mensagem);
+    public static void printSemEnter(String mensagem){
+       System.out.print(mensagem);
     }
-    public static scanInt(){
-        return scan.nextInt();
+    public static void printComEnter(String mensagem){
+        System.out.println(mensagem);
     }
-    public static scanDouble(){
-        return scan.nextDouble();
+    public static int scanInt(){
+        int valor = scan.nextInt();
+        scan.nextLine();        
+        return valor;
     }
-    public static scanBoolean(){
-        return scan.nextBoolean();
+    public static double scanDouble(){
+        double valor = scan.nextDouble();
+        //scan.nextLine();        
+        return valor;
+
     }
-    public static scanFloat(){
-        return scan.nextFloat();
+    public static boolean scanBoolean(){
+        boolean valor = scan.nextBoolean();
+        //scan.nextLine();        
+        return valor;
     }
-    public static scanLine(){
-        return scan.nextLine();
+    public static float scanFloat(){
+        float valor = scan.nextFloat();
+        //scan.nextLine();        
+        return valor;
+    }
+    public static String scanLine(){
+        String valor = scan.nextLine();
+        //scan.nextLine();        
+        return valor;
     }
 }
