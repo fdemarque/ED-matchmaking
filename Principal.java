@@ -2,7 +2,7 @@ public class Principal{
     public static void main(String[] args){
         
         ListaDupla Lista = new ListaDupla();
-       while(true){
+       do{
          int opcaoEscolhida = 0;
          Utils.printComEnter("---- MATCHMAKING MENU -----");
          Utils.printComEnter("1 - Adicionar jogador");
@@ -23,14 +23,15 @@ public class Principal{
                   break;
             
                case 4:
+                  Utils.printComEnter("Obrigado por jogar O jogo.")
                   break;
                
                default:
                   Utils.printComEnter("Opcao errada.");
                   break;
         }
-
-      }
+      }while(opcaoEscolhida ==4)
+   }
    } 
         
 }
