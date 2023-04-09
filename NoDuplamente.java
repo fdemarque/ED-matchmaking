@@ -1,9 +1,18 @@
 public class NoDuplamente{
+   private double points;
    private Jogador jogador;
    private NoDuplamente anterior;
    private NoDuplamente proximo;
    
-  public void setJogador(Jogador jogador){
+   public void setPoints(double points){
+      this.points = points;
+   }
+   
+   public double getPoints(){
+      return this.points;
+   }
+   
+   public void setJogador(Jogador jogador){
       this.jogador = jogador;
    }
    
@@ -26,5 +35,10 @@ public class NoDuplamente{
    public void setProximo(NoDuplamente proximo){
       this.proximo = proximo;
    }
+   // @Override
+   // public String toString() {
+   //    return jogador + ", Habilidade: " + points;
+   //  }
+
    
 }

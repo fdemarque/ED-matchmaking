@@ -14,6 +14,7 @@ public class ListaDupla{
    
    public void add(Jogador novoJogador){
       NoDuplamente novoNo = new NoDuplamente();
+      novoNo.setPoints(novoJogador.getPontuacaoHabilidade());
       novoNo.setJogador(novoJogador);
       novoNo.setAnterior(cabeca);
       novoNo.setProximo(cabeca.getProximo());
