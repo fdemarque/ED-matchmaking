@@ -36,14 +36,14 @@ public class Jogador {
         this.role = role;
     }
     public void credenciaisJogador(){
-        Utils.printSemEnter("Olá, bem vindo ao O jogo, digite suas credenciais de jogador para começar uma partida:\n");
-        Utils.printSemEnter("Digite seu ID: ");
+        Utils.print("Olá, bem vindo ao O jogo, digite suas credenciais de jogador para começar uma partida:\n");
+        Utils.print("Digite seu ID: ");
         this.ID = Utils.scanLine();
-        Utils.printSemEnter("Role: ");
+        Utils.print("Role: ");
         this.role = Utils.scanLine();
-        Utils.printSemEnter("Pontuação de Habilidade: ");
+        Utils.print("Pontuação de Habilidade: ");
         this.PontuacaoHabilidade = Utils.scanDouble();
-        Utils.printSemEnter("Pontuação de comportamento: ");
+        Utils.print("Pontuação de comportamento: ");
         this.PontuacaoComportamento = Utils.scanDouble();
     }
     @Override

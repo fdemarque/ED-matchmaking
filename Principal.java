@@ -2,13 +2,14 @@ public class Principal{
     public static void main(String[] args){
         
         ListaDupla Lista = new ListaDupla();
+        int opcaoEscolhida = 0;
        do{
-         int opcaoEscolhida = 0;
-         Utils.printComEnter("---- MATCHMAKING MENU -----");
-         Utils.printComEnter("1 - Adicionar jogador");
-         Utils.printComEnter("2 - Ver jogadores em espera");
-         Utils.printComEnter("3 - Ver partidas em andamento");
-         Utils.printComEnter("4 - Sair");
+         opcaoEscolhida = 0;
+         Utils.println("---- MATCHMAKING MENU -----");
+         Utils.println("1 - Adicionar jogador");
+         Utils.println("2 - Ver jogadores em espera");
+         Utils.println("3 - Ver partidas em andamento");
+         Utils.println("4 - Sair");
          opcaoEscolhida = Utils.scanInt();
          switch (opcaoEscolhida) {
                case 1:
@@ -23,15 +24,14 @@ public class Principal{
                   break;
             
                case 4:
-                  Utils.printComEnter("Obrigado por jogar O jogo.")
+                  Utils.println("Obrigado por jogar O jogo.");
                   break;
                
                default:
-                  Utils.printComEnter("Opcao errada.");
+                  Utils.println("Opcao errada.");
                   break;
         }
-      }while(opcaoEscolhida ==4)
-   }
+      }while( opcaoEscolhida != 4 );
+      Utils.print("FIM");
    } 
-        
-}
+  }       

@@ -6,10 +6,10 @@ public abstract class Utils{
     
     private static Scanner scan = new Scanner(System.in);
 
-    public static void printSemEnter(String mensagem){
+    public static void print(String mensagem){
        System.out.print(mensagem);
     }
-    public static void printComEnter(String mensagem){
+    public static void println(String mensagem){
         System.out.println(mensagem);
     }
     public static int scanInt(){

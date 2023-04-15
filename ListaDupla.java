@@ -13,14 +13,15 @@ public class ListaDupla{
    }
    
    public void add(Jogador novoJogador){
+   // AQUI começa a brincadeira. instancio o novo nó e passo as primeiras referencias
+   // que é a cabeca e a cauda os pontos e meu objeto
       NoDuplamente novoNo = new NoDuplamente();
       novoNo.setPoints(novoJogador.getPontuacaoHabilidade());
       novoNo.setJogador(novoJogador);
       novoNo.setAnterior(cabeca);
       novoNo.setProximo(cabeca.getProximo());
-      
-      cabeca.getProximo().setAnterior(novoNo);
-      cabeca.setProximo(novoNo);
+      //aqui eu chamo um método para organizar esse meu novo nó 
+      organizarLista(novoJogador,novoNo);
       tamanho++;
    }
    
@@ -31,7 +32,52 @@ public class ListaDupla{
       System.out.println(atual.getJogador());
       }
    }
+   public void organizarLista(Jogador novo, NoDuplamente novoNo){
+      //instancio o anterior e o proximo em variáveis para facilitar o manuseio  
+      NoDuplamente anterior = novoNo.getAnterior();
+      NoDuplamente proximo = novoNo.getProximo();
+      //esse metodo dentro do if confere pra saber se o No ;e o primeiro da lista
+      if(conferirProxAnt(anterior, proximo, novoNo) == true){
+         int  validador = 0;
+         do{
+         //aqui ;e o if pra solocar ele em primeiro, tendo outro maior que ele a frente
+            if(anterior == cabeca && proximo.getPoints() > novoNo.getPoints()){
+               cabeca.getProximo().setAnterior(novoNo);
+               cabeca.setProximo(novoNo);
+               validador = 1;
+         //aqui coloca ele no meio dos dois
+            }else if(novoNo.getPoints() < proximo.getPoints() && novoNo.getPoints() > anterior.getPoints()){
+               proximo.setAnterior(novoNo);
+               anterior.setProximo(novoNo);
+               validador = 1;
+         // aqui, se caso o anterior for igual e o proximo for maior ele o adiciona aqui
+            }else if(novoNo.getPoints() < proximo.getPoints() && novoNo.getPoints() == anterior.getPoints()){
+               proximo.setAnterior(novoNo);
+               anterior.setProximo(novoNo);
+               validador = 1;
+         // se ele for o ultimo da lista e não tiver pegado nenhuma regra
+            }else if(anterior != cabeca && proximo == cauda){
+               cauda.getAnterior().setProximo(novoNo);
+               cauda.setAnterior(novoNo);
+               validador = 1;
+         // aqui se nenhum acontecer, ele anda com o proximo e com o anterior
+            }else{
+               anterior = proximo;
+               proximo = proximo.getProximo();
+            }
+         }while(validador == 0);
+      }   
+   }
    
+   public boolean conferirProxAnt(NoDuplamente anterior, NoDuplamente proximo, NoDuplamente novoNo){
+       if(anterior == cabeca && proximo == cauda){
+         cabeca.getProximo().setAnterior(novoNo);
+         cabeca.setProximo(novoNo);
+         return false;
+       }else{
+         return true;
+       }
+   }
    
   /* public NoDuplamente getAt(int indiceProcurado){
       if(indiceProcurado > tamanho){
