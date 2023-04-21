@@ -12,8 +12,7 @@ public class ListaPartida{
       cauda.setAnterior(cabeca);
     }
     
-    public void inicarPartida(ListaDupla Lista){
-        
+    public void inicarPartida(ListaDupla Lista){  
         if(Lista.getTamanho >= 6){
           ListaDupla cabeca = Lista.getCabeca();
           ListaDupla cauda = Lista.getcauda();
@@ -80,19 +79,33 @@ public class ListaPartida{
       if(partida[0][0].getJogador.getRole() != y.getJogador().getRole()){
         partida[0][1] = y.getJogador();
         y = y.getProximo();
+        if (partida[0][0].getJogador.getRole() != y.getJogador().getRole()) && (partida[0][1].getJogador.getRole() != y.getJogador().getRole()){
+          partida[0][2] = y.getJogador();
+          partida[1][1] = y.getProximo().getJogador();
+          partida[1][1] = y.getProximo().getProximo().getJogador();
+        }else{
+          partida[1][1] = y.getJogador();
+          y = y.getProximo();
+          if (partida[0][0].getJogador.getRole() != y.getJogador().getRole()) && (partida[0][1].getJogador.getRole() != y.getJogador().getRole()){
+            partida[0][2] = y.getJogador();
+            partida[1][2] = y.getProximo().getJogador()
+          }else{
+            partida[1][2] = y.getJogador();
+            partida[0][2] = y.getProximo().getJogador()
+          }
+        }
       }else{
         partida[1][1] = y.getJogador();
         partida[0][1] = y.getProximo().getJogador();
         y = y.getProximo().getProximo();
+        if ((partida[0][0].getJogador.getRole() != y.getJogador().getRole()) && (partida[0][1].getJogador.getRole() != y.getJogador().getRole())){
+          partida[0][2] = y.getJogador();
+          partida[1][2] = y.getProximo().getJogador();
+        }else{
+          partida[1][2] = y.getJogador();
+          partida[0][2] = y.getProximo().getJogador();
+        }
       }
-      if((partida[0][0].getJogador.getRole() != y.getJogador().getRole()) && (partida[0][1].getJogador.getRole() != y.getJogador().getRole())){
-        partida[0][2] = y.getJogador();
-        partida[1][2] = y.getProximo().getJogador();
-      }else{
-        partida[1][2] = y.getJogador();
-        partida[0][2] = y.getProximo().getJogador()
-      }
-
           // for(int i; i <  2; i++){
           //   for(int j; j < 3; i++){
           //     if(partida[i][j].getJogador.getRole() != y.getJogador().getRole()){
@@ -107,23 +120,3 @@ public class ListaPartida{
           // }
     }
 }
-
- 
- 
- J J 
-
-T M 
-
-T M
-
- J T j
-
-T M J
-
-M 
-
-M j
-
-T J M
-
-M T J
