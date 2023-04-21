@@ -1,6 +1,7 @@
 public class ListaPartida{
     private NoDuplamente cabeca;
     private NoDuplamente cauda;
+    private Jogador[][] partida = new Jogador[1][2];
     private int tamanho;
 
     public class ListaPartida(){
@@ -11,8 +12,7 @@ public class ListaPartida{
       cabeca.setProximo(cauda);
       cauda.setAnterior(cabeca);
     }
-    
-    public void inicarPartida(ListaDupla Lista){  
+    public void inicarPartida(ListaDupla Lista,ListaPartida Partidas){  
         if(Lista.getTamanho >= 6){
           ListaDupla cabeca = Lista.getCabeca();
           ListaDupla cauda = Lista.getcauda();
@@ -25,22 +25,33 @@ public class ListaPartida{
           }
           while(y != cabeca){
             if(validaPointsJogo(x, y)){
-              if(verificarRole(x)){
+              if(verificarRole(y)){
                 Jogador[][] partida = new Jogador[1][2];
-                distribuirJogadores(partida, x);
-                //arancar jogadores da lista de jogadores principais
+                distribuirJogadores(partida, y);
                 //add a partida a lista de partidas.
+                add(Partidas, partidas);
+                //arancar jogadores da lista de jogadores principais
+                x.getAnterior().setProximo(y.getProximo());
+                y.getProximo().setAnterior()(x.getAnterior());
                 break;
               }
+            }else{
+              x = x.getProximo();
+              y = y.getProximo();
             }
-            x = x.getProximo();
-            y = y.getProximo();
           }
-        }
-
         }else{
           Utils.println("Quantidade de jogadores minima não atingida...");
         }
+    }
+    public void add(Partidas){
+      ListaPartida cabeca = Partidas.getCabeca();
+      ListaPartida cauda = Partidas.getCauda();
+      NoPartida novoNo = new NoPartida();
+      novoNo.setPartida(partidas);
+      cabeca.getProximo().setAnterior(novoNoPartida);
+      cabeca.setProximo(novoNoPartida);
+
     }
     public boolean validaPointsJogo(NoDuplamente x, NoDuplamente y){
       boolean resposta = (y.getPoints() - x.getPoints()) > 1000?false:true;
@@ -75,34 +86,13 @@ public class ListaPartida{
       }
       return true;
     }
-    public distribuirJogadores(Jogador[][] partida, NoDuplamente y){
+    public Jogador distribuirJogadores(Jogador[][] partida, NoDuplamente y){
       partida[0][0] = y.getJogador();
       y = y.getProximo();
       partida[1][0] = y.getJogador();
       y = y.getProximo();
-      if(partida[0][0].getJogador.getRole() != y.getJogador().getRole()){
-        partida[0][1] = y.getJogador();
-        y = y.getProximo();
-        if (partida[0][0].getJogador.getRole() != y.getJogador().getRole()) && (partida[0][1].getJogador.getRole() != y.getJogador().getRole()){
-          partida[0][2] = y.getJogador();
-          partida[1][1] = y.getProximo().getJogador();
-          partida[1][1] = y.getProximo().getProximo().getJogador();
-        }else{
-          partida[1][1] = y.getJogador();
-          y = y.getProximo();
-          if (partida[0][0].getJogador.getRole() != y.getJogador().getRole()) && (partida[0][1].getJogador.getRole() != y.getJogador().getRole()){
-            partida[0][2] = y.getJogador();
-            partida[1][2] = y.getProximo().getJogador()
-          }else{
-            partida[1][2] = y.getJogador();
-            partida[0][2] = y.getProximo().getJogador()
-          }
-        }
-      }else{
-        partida[1][1] = y.getJogador();
-        partida[0][1] = y.getProximo().getJogador();
-        y = y.getProximo().getProximo();
-        if ((partida[0][0].getJogador.getRole() != y.getJogador().getRole()) && (partida[0][1].getJogador.getRole() != y.getJogador().getRole())){
+      if(primeiraValidacaoDistribuirJogadores(partida, y)){
+        if(partida[0][0].getRole() != y.getJogador().getRole() && partida[0][1].getRole() != y.getJogador().getRole()){
           partida[0][2] = y.getJogador();
           partida[1][2] = y.getProximo().getJogador();
         }else{
@@ -110,18 +100,68 @@ public class ListaPartida{
           partida[0][2] = y.getProximo().getJogador();
         }
       }
-          // for(int i; i <  2; i++){
-          //   for(int j; j < 3; i++){
-          //     if(partida[i][j].getJogador.getRole() != y.getJogador().getRole()){
-          //       if(partida[i][j-1].getJogador.getRole() != y.getJogador().getRole()){
-          //         partida[i][j+1] = y.getJogador();
-          //       }
-          //     }else{
-          //       partida[i+1][j] = y.getJogador();
-          //     }
-          //     y = y.getProximo();
-          //   }
-
-          // }
+      return partida;
     }
-}
+    public boolean primeiraValidacaoDistribuirJogadores(Jogador[][] partida, NoDuplamente y){
+      while(partida[0][1].getRole() != y.getJogador().getRole()){
+        if(partida[0][0].getRole() != y.getJogador().getRole()){
+          partida[0][1] = y.getJogador();
+          if(partida[1][0].getRole() != y.getProximo().getJogador().getROle()){
+           partida[1][1] = y.getProximo().getJogador();
+           y = y.getProximo().getProximo();
+           return true;
+          }else{
+           partida[0][2] = y.getProximo().getJogador();
+           partida[1][1] = y.getProximo().getProximo().getJogador();
+           partida[1][2] = y.getProximo().getProximo().getProximo().getJogador();
+           return false;
+          }
+       }else{
+         partida[1][1] = y.getJogador();
+         y = y.getProximo();
+       }
+      }
+    }
+      // if(partida[0][0].getRole() != y.getJogador().getRole()){
+      //   partida[0][1] = y.getJogador();
+      //   y = y.getProximo();
+      //   if (partida[0][0].getRole() != y.getJogador().getRole()) && (partida[0][1].getRole() != y.getJogador().getRole()){
+      //     partida[0][2] = y.getJogador();
+      //     partida[1][1] = y.getProximo().getJogador();
+      //     partida[1][2] = y.getProximo().getProximo().getJogador();
+      //   }else{
+      //     partida[1][1] = y.getJogador();
+      //     y = y.getProximo();
+      //     if (partida[0][0].getJogador.getRole() != y.getJogador().getRole()) && (partida[0][1].getJogador.getRole() != y.getJogador().getRole()){
+      //       partida[0][2] = y.getJogador();
+      //       partida[1][2] = y.getProximo().getJogador()
+      //     }else{
+      //       partida[1][2] = y.getJogador();
+      //       partida[0][2] = y.getProximo().getJogador()
+      //     }
+      //   }
+      // }else{
+      //   partida[1][1] = y.getJogador();
+      //   partida[0][1] = y.getProximo().getJogador();
+      //   y = y.getProximo().getProximo();
+      //   if ((partida[0][0].getRole() != y.getJogador().getRole()) && (partida[0][1].getRole() != y.getJogador().getRole())){
+      //     partida[0][2] = y.getJogador();
+      //     partida[1][2] = y.getProximo().getJogador();
+      //   }else{
+      //     partida[1][2] = y.getJogador();
+      //     partida[0][2] = y.getProximo().getJogador();
+      //   }
+      // }
+
+
+
+
+
+
+
+
+ J J 
+
+m s 
+
+s t 

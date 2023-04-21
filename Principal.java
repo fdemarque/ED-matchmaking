@@ -18,7 +18,7 @@ public class Principal{
                case 1:
                   Jogador novoJogador = new Jogador();
                   Lista.add(novoJogador);
-                  Partidas.inicarPartida(ListaDupla);
+                  Partidas.inicarPartida(ListaDupla, Partidas);
                   break;
                case 2:
                   Lista.exibirTodos();
