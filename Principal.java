@@ -4,6 +4,8 @@ public class Principal{
         ListaDupla Lista = new ListaDupla();
         ListaPartida Partidas = new ListaPartida();
         int opcaoEscolhida = 0;
+        //Ler o arquivo adiconar jogadores ma lista
+        ListaDupla Lista = Arquivo.addJogadoresArquivo(Lista);
        do{
          opcaoEscolhida = 0;
          Utils.println("---- MATCHMAKING MENU -----");

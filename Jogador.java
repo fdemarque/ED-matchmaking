@@ -7,6 +7,13 @@ public class Jogador {
         credenciaisJogador();
     }
 
+    public Jogador(ID id, String role, double points){
+        this.ID = id;
+        this.PontuacaoHabilidade = points
+        this.role = role;
+    }
+
+
     //peguei da MatchManager
 
 
@@ -43,6 +50,7 @@ public class Jogador {
         Utils.print("Pontuação de Habilidade: ");
         this.PontuacaoHabilidade = Utils.scanDouble();
     }
+
     @Override
         public String toString() {
             return "\nID: " + ID + ",\nRole: " + role + ",\nHabilidade: " + PontuacaoHabilidade + "\n";
