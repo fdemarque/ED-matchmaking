@@ -15,6 +15,12 @@ public class ListaDupla{
    public int getTamanho(){
       return this.tamanho;
    }
+   public ListaDupla getCabeca(){
+      return this.cabeca;
+   };
+   public ListaDupla getCauda(){
+      return this.cauda;
+   };
    
    public void add(Jogador novoJogador){
       // AQUI começa a brincadeira. instancio o novo nó e passo as primeiras referencias
