@@ -1,7 +1,6 @@
 public class Jogador {
     private String ID;
     private double PontuacaoHabilidade;
-    private double PontuacaoComportamento;
     private String role;
 
     public Jogador() {
@@ -39,16 +38,14 @@ public class Jogador {
         Utils.print("Olá, bem vindo ao O jogo, digite suas credenciais de jogador para começar uma partida:\n");
         Utils.print("Digite seu ID: ");
         this.ID = Utils.scanLine();
-        Utils.print("Role: ");
+        Utils.print("Role(carregador, tanker, suporte ou mago): ");
         this.role = Utils.scanLine();
         Utils.print("Pontuação de Habilidade: ");
         this.PontuacaoHabilidade = Utils.scanDouble();
-        Utils.print("Pontuação de comportamento: ");
-        this.PontuacaoComportamento = Utils.scanDouble();
     }
     @Override
         public String toString() {
-            return "\nID: " + ID + ",\nRole: " + role + ",\nHabilidade: " + PontuacaoHabilidade + ",\nComportamento: " + PontuacaoComportamento + "\n";
+            return "\nID: " + ID + ",\nRole: " + role + ",\nHabilidade: " + PontuacaoHabilidade + "\n";
         }
 
 }
