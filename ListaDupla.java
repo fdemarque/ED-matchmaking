@@ -7,14 +7,14 @@ public class ListaDupla{
       tamanho = 0;
       cabeca = new NoDuplamente();
       cauda = new NoDuplamente();
-      
+
       cabeca.setProximo(cauda);
       cauda.setAnterior(cabeca);
    }
    
    public void add(Jogador novoJogador){
-   // AQUI começa a brincadeira. instancio o novo nó e passo as primeiras referencias
-   // que é a cabeca e a cauda os pontos e meu objeto
+      // AQUI começa a brincadeira. instancio o novo nó e passo as primeiras referencias
+      // que é a cabeca e a cauda os pontos e meu objeto
       NoDuplamente novoNo = new NoDuplamente();
       novoNo.setPoints(novoJogador.getPontuacaoHabilidade());
       novoNo.setJogador(novoJogador);
@@ -38,18 +38,14 @@ public class ListaDupla{
       NoDuplamente proximo = novoNo.getProximo();
       //esse metodo dentro do if confere pra saber se o No ;e o primeiro da lista
       if(conferirProxAnt(anterior, proximo, novoNo) == true){
-         //aqui e o if pra solocar ele em primeiro, tendo outro maior que ele a frente
+         for(NoDuplamente atual = cabeca.getProximo(); atual.getProximo() != cauda; atual = atual.getProximo()){
             if(anterior == cabeca && proximo.getPoints() > novoNo.getPoints()){
                addComecoLista(novoNo);
          //aqui coloca ele no meio dos dois
-            }else if(novoNo.getPoints() < proximo.getPoints() && novoNo.getPoints() > anterior.getPoints()){
+            }else if(novoNo.getPoints() < proximo.getPoints() && novoNo.getPoints() >= anterior.getPoints()){
                anterior.setProximo(novoNo);
                proximo.setAnterior(novoNo);
          // aqui, se caso o anterior for igual e o proximo for maior ele o adiciona aqui
-            }else if(novoNo.getPoints() < proximo.getPoints() && novoNo.getPoints() == anterior.getPoints()){
-               anterior.setProximo(novoNo);
-               proximo.setAnterior(novoNo);
-         // se ele for o ultimo da lista e não tiver pegado nenhuma regra
             }else if(anterior != cabeca && proximo == cauda){
                cauda.getAnterior().setProximo(novoNo);
                cauda.setAnterior(novoNo);
@@ -57,7 +53,10 @@ public class ListaDupla{
             }else{
                anterior = proximo;
                proximo = proximo.getProximo();
+               novoNo.setProximo(proximo);
+               novoNo.setAnterior(anterior);
             }
+         }
       }else{
          //Caso seja o primeiro da lista
          addComecoLista(novoNo);
