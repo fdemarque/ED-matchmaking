@@ -20,18 +20,22 @@ public class ListaPartida{
           NoDuplamente y = new NoDuplamente();
           x = cabeca.getProximo();
           y = x;
-          for(int i = 0; i < 5; 1++){
+          for(int i = 0; i < 5; i++){
             y = y.getProximo();
           }
-          if(validaPointsJogo(x, y)){
-            y = x;
-            if(verificarRole(y)){
-              Jogador[][] partida = new Jogador[1][2];
-              distribuirJogadores(partida, y);
+          while(y != cabeca){
+            if(validaPointsJogo(x, y)){
+              if(verificarRole(x)){
+                Jogador[][] partida = new Jogador[1][2];
+                distribuirJogadores(partida, x);
+                //arancar jogadores da lista de jogadores principais
+                //add a partida a lista de partidas.
+                break;
+              }
             }
+            x = x.getProximo();
+            y = y.getProximo();
           }
-          x = x.getProximo();
-          y = x;
         }
 
         }else{
@@ -117,6 +121,7 @@ public class ListaPartida{
           //     }
           //     y = y.getProximo();
           //   }
+
           // }
     }
 }
