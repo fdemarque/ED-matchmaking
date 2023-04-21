@@ -5,11 +5,15 @@ public class ListaDupla{
    
    public ListaDupla(){
       tamanho = 0;
-      cabeca = new NoDuplamente();
-      cauda = new NoDuplamente();
+      this.cabeca = new NoDuplamente();
+      this.cauda = new NoDuplamente();
 
-      cabeca.setProximo(cauda);
-      cauda.setAnterior(cabeca);
+      this.cabeca.setProximo(cauda);
+      this.cauda.setAnterior(cabeca);
+   }
+
+   public int getTamanho(){
+      return this.tamanho;
    }
    
    public void add(Jogador novoJogador){
@@ -24,7 +28,7 @@ public class ListaDupla{
       organizarLista(novoNo);
       tamanho++;
    }
-   
+
    public void exibirTodos(){
       NoDuplamente atual = cabeca;
       for(int i = 0; i != tamanho; i++){
@@ -32,6 +36,7 @@ public class ListaDupla{
       System.out.println(atual.getJogador());
       }
    }
+
    public void organizarLista(NoDuplamente novoNo){
       //instancio o anterior e o proximo em variáveis para facilitar o manuseio  
       NoDuplamente anterior = novoNo.getAnterior();

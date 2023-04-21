@@ -2,6 +2,7 @@ public class Principal{
     public static void main(String[] args){
         
         ListaDupla Lista = new ListaDupla();
+        ListaPartida Partidas = new ListaPartida();
         int opcaoEscolhida = 0;
        do{
          opcaoEscolhida = 0;
@@ -15,6 +16,7 @@ public class Principal{
                case 1:
                   Jogador novoJogador = new Jogador();
                   Lista.add(novoJogador);
+                  Partidas.inicarPartida(ListaDupla);
                   break;
                case 2:
                   Lista.exibirTodos();
