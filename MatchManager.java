@@ -60,7 +60,7 @@ public class MatchmakingAlgorithm {
         public boolean estaEquilibrado(Time outroTime) {
             int diferencaPontuacao = Math.abs(getPontuacaoHabilidade() - outroTime.getPontuacaoHabilidade());
             return diferencaPontuacao <= 10;
-        }
+        } 
         
         public String toString() {
             StringBuilder sb = new StringBuilder();
