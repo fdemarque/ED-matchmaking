@@ -1,29 +1,29 @@
 public class NoPartida{
     private Jogador[][] partidas;
-    private NoDuplamente anterior;
-    private NoDuplamente proximo; 
+    private NoPartida anterior;
+    private NoPartida proximo; 
     
-    public void setPartidas(Jogador[][] partidas){
+    public void setPartida(Jogador[][] partidas){
        this.partidas = partidas;
     }
     
-    public Jogador[][] setPartidas(){
+    public Jogador[][] getPartidas(){
        return this.partidas;
     }
     
-    public NoDuplamente getAnterior(){
+    public NoPartida getAnterior(){
        return this.anterior;
     }
     
-    public NoDuplamente getProximo(){
+    public NoPartida getProximo(){
        return this.proximo;
     }
     
-    public void setAnterior(NoDuplamente anterior){
+    public void setAnterior(NoPartida anterior){
        this.anterior = anterior;
     }
     
-    public void setProximo(NoDuplamente proximo){
+    public void setProximo(NoPartida proximo){
        this.proximo = proximo;
     }
 

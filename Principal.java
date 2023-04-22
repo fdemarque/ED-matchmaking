@@ -1,11 +1,11 @@
 public class Principal{
     public static void main(String[] args){
         
-        ListaDupla Lista = new ListaDupla();
+        ListaDupla lista = new ListaDupla();
         ListaPartida Partidas = new ListaPartida();
         int opcaoEscolhida = 0;
         //Ler o arquivo adiconar jogadores ma lista
-        ListaDupla Lista = Arquivo.addJogadoresArquivo(Lista);
+        lista = Arquivo.addJogadoresArquivo(lista);
        do{
          opcaoEscolhida = 0;
          Utils.println("---- MATCHMAKING MENU -----");
@@ -17,16 +17,14 @@ public class Principal{
          switch (opcaoEscolhida) {
                case 1:
                   Jogador novoJogador = new Jogador();
-                  Lista.add(novoJogador);
-                  Partidas.inicarPartida(ListaDupla, Partidas);
+                  lista.add(novoJogador);
                   break;
                case 2:
-                  Lista.exibirTodos();
+                  lista.exibirTodos();
                   break;
                case 3:
-                
+                  Partidas.inicarPartida(lista, Partidas);
                   break;
-            
                case 4:
                   Utils.println("Obrigado por jogar O jogo.");
                   break;

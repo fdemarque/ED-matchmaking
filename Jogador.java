@@ -1,5 +1,5 @@
 public class Jogador {
-    private String ID;
+    private int ID;
     private double PontuacaoHabilidade;
     private String role;
 
@@ -7,9 +7,9 @@ public class Jogador {
         credenciaisJogador();
     }
 
-    public Jogador(ID id, String role, double points){
+    public Jogador(int id, String role, double points){
         this.ID = id;
-        this.PontuacaoHabilidade = points
+        this.PontuacaoHabilidade = points;
         this.role = role;
     }
 
@@ -18,7 +18,7 @@ public class Jogador {
 
 
 
-    public String getID() {
+    public int getID() {
         return ID;
     }
 
@@ -30,7 +30,7 @@ public class Jogador {
         return role;
     }
 
-    public void setID(String ID) {
+    public void setID(int ID) {
         this.ID = ID;
     }
 
@@ -44,7 +44,7 @@ public class Jogador {
     public void credenciaisJogador(){
         Utils.print("Olá, bem vindo ao O jogo, digite suas credenciais de jogador para começar uma partida:\n");
         Utils.print("Digite seu ID: ");
-        this.ID = Utils.scanLine();
+        this.ID = Utils.scanInt();
         Utils.print("Role(carregador, tanker, suporte ou mago): ");
         this.role = Utils.scanLine();
         Utils.print("Pontuação de Habilidade: ");

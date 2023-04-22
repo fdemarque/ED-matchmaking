@@ -15,10 +15,10 @@ public class ListaDupla{
    public int getTamanho(){
       return this.tamanho;
    }
-   public ListaDupla getCabeca(){
+   public NoDuplamente getCabeca(){
       return this.cabeca;
    };
-   public ListaDupla getCauda(){
+   public NoDuplamente getCauda(){
       return this.cauda;
    };
    

@@ -1,21 +1,20 @@
 public class ListaPartida{
-    private NoDuplamente cabeca;
-    private NoDuplamente cauda;
-    private Jogador[][] partida = new Jogador[1][2];
+    private NoPartida cabeca;
+    private NoPartida cauda;
+    private Jogador[][] partida = new Jogador[2][3];
     private int tamanho;
 
-    public class ListaPartida(){
+    public ListaPartida(){
       tamanho = 0;
-      cabeca = new NoDuplamente();
-      cauda = new NoDuplamente();
-
+      cabeca = new NoPartida();
+      cauda = new NoPartida();
       cabeca.setProximo(cauda);
       cauda.setAnterior(cabeca);
     }
-    public void inicarPartida(ListaDupla Lista,ListaPartida Partidas){  
-        if(Lista.getTamanho >= 6){
-          ListaDupla cabeca = Lista.getCabeca();
-          ListaDupla cauda = Lista.getcauda();
+    public void inicarPartida(ListaDupla lista,ListaPartida Partidas){  
+        if(lista.getTamanho() >= 6){
+          NoDuplamente cabeca = lista.getCabeca();
+          NoDuplamente cauda = lista.getCauda();
           NoDuplamente x = new NoDuplamente();
           NoDuplamente y = new NoDuplamente();
           x = cabeca.getProximo();
@@ -29,10 +28,10 @@ public class ListaPartida{
                 Jogador[][] partida = new Jogador[1][2];
                 distribuirJogadores(partida, y);
                 //add a partida a lista de partidas.
-                add(Partidas, partidas);
+                add(Partidas, partida);
                 //arancar jogadores da lista de jogadores principais
                 x.getAnterior().setProximo(y.getProximo());
-                y.getProximo().setAnterior()(x.getAnterior());
+                y.getProximo().setAnterior(x.getAnterior());
                 break;
               }
             }else{
@@ -44,13 +43,11 @@ public class ListaPartida{
           Utils.println("Quantidade de jogadores minima não atingida...");
         }
     }
-    public void add(Partidas){
-      ListaPartida cabeca = Partidas.getCabeca();
-      ListaPartida cauda = Partidas.getCauda();
+    public void add(ListaPartida listaDePartidas, Jogador[][] partidas){
       NoPartida novoNo = new NoPartida();
       novoNo.setPartida(partidas);
-      cabeca.getProximo().setAnterior(novoNoPartida);
-      cabeca.setProximo(novoNoPartida);
+      cabeca.getProximo().setAnterior(novoNo);
+      cabeca.setProximo(novoNo);
 
     }
     public boolean validaPointsJogo(NoDuplamente x, NoDuplamente y){
@@ -58,19 +55,19 @@ public class ListaPartida{
       return resposta;
     }
     public boolean verificarRole(NoDuplamente y){
-      int[] roles = [0,0,0,0];
-      for(int i = 0; i < 5; 1++){
+      int[] roles =  new int[4];
+      for(int i = 0; i < 5; i++){
         switch (y.getJogador().getRole()) {
-          case T:
+          case "T":
             roles[0] += 1;
             break;
-          case M:
+          case "M":
             roles[1] += 1;
             break;
-          case S:
+          case "S":
             roles[2] += 1;
             break;
-          case J:
+          case "J":
             roles[3] += 1;
           break;
           default:
@@ -86,7 +83,7 @@ public class ListaPartida{
       }
       return true;
     }
-    public Jogador distribuirJogadores(Jogador[][] partida, NoDuplamente y){
+    public Jogador[][] distribuirJogadores(Jogador[][] partida, NoDuplamente y){
       partida[0][0] = y.getJogador();
       y = y.getProximo();
       partida[1][0] = y.getJogador();
@@ -106,7 +103,7 @@ public class ListaPartida{
       while(partida[0][1].getRole() != y.getJogador().getRole()){
         if(partida[0][0].getRole() != y.getJogador().getRole()){
           partida[0][1] = y.getJogador();
-          if(partida[1][0].getRole() != y.getProximo().getJogador().getROle()){
+          if(partida[1][0].getRole() != y.getProximo().getJogador().getRole()){
            partida[1][1] = y.getProximo().getJogador();
            y = y.getProximo().getProximo();
            return true;
@@ -121,7 +118,10 @@ public class ListaPartida{
          y = y.getProximo();
        }
       }
+      return true;
     }
+}
+    
       // if(partida[0][0].getRole() != y.getJogador().getRole()){
       //   partida[0][1] = y.getJogador();
       //   y = y.getProximo();
@@ -152,16 +152,3 @@ public class ListaPartida{
       //     partida[0][2] = y.getProximo().getJogador();
       //   }
       // }
-
-
-
-
-
-
-
-
- J J 
-
-m s 
-
-s t 
