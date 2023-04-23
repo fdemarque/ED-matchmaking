@@ -15,6 +15,7 @@ public class Arquivo {
                 int pontuacao = Integer.parseInt(partes[2]);
                 Jogador jogador = new Jogador(numero, tipo, pontuacao);
                 Lista.add(jogador);
+                ListaJogadores.setTamanho(1);
             }
             scanner.close();
         } catch (FileNotFoundException e) {

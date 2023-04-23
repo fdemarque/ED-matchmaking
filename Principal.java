@@ -23,10 +23,11 @@ public class Principal{
                   lista.exibirTodos();
                   break;
                case 3:
-                  Partidas.inicarPartida(lista, Partidas);
+                  Partidas.iniciarPartida(lista, Partidas);
+                  Partidas.exibirPartidas();
                   break;
                case 4:
-                  Utils.println("Obrigado por jogar O jogo.");
+                  Utils.println("Obrigado por jogar 'O jogo'.");
                   break;
                
                default:

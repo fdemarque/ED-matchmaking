@@ -15,6 +15,10 @@ public class ListaDupla{
    public int getTamanho(){
       return this.tamanho;
    }
+   
+   public void setTamanho(int tamanho){
+      this.tamanho += tamanho;
+   }
    public NoDuplamente getCabeca(){
       return this.cabeca;
    };
@@ -36,9 +40,7 @@ public class ListaDupla{
    }
 
    public void exibirTodos(){
-      NoDuplamente atual = cabeca;
-      for(int i = 0; i != tamanho; i++){
-      atual = atual.getProximo();
+      for(NoDuplamente atual = cabeca.getProximo(); atual != cauda; atual = atual.getProximo()){
       System.out.println(atual.getJogador());
       }
    }
@@ -49,17 +51,21 @@ public class ListaDupla{
       NoDuplamente proximo = novoNo.getProximo();
       //esse metodo dentro do if confere pra saber se o No ;e o primeiro da lista
       if(conferirProxAnt(anterior, proximo, novoNo) == true){
-         for(NoDuplamente atual = cabeca.getProximo(); atual.getProximo() != cauda; atual = atual.getProximo()){
+         //for(NoDuplamente atual = cabeca.getProximo(); atual.getProximo() != cauda; atual = atual.getProximo()){
+         for(int atual = 1; atual != tamanho+1; atual++){
             if(anterior == cabeca && proximo.getPoints() > novoNo.getPoints()){
                addComecoLista(novoNo);
+               break;
          //aqui coloca ele no meio dos dois
             }else if(novoNo.getPoints() < proximo.getPoints() && novoNo.getPoints() >= anterior.getPoints()){
                anterior.setProximo(novoNo);
                proximo.setAnterior(novoNo);
+               break;
          // aqui, se caso o anterior for igual e o proximo for maior ele o adiciona aqui
             }else if(anterior != cabeca && proximo == cauda){
                cauda.getAnterior().setProximo(novoNo);
                cauda.setAnterior(novoNo);
+               break;
          // aqui se nenhum acontecer, ele anda com o proximo e com o anterior
             }else{
                anterior = proximo;
