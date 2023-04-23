@@ -57,17 +57,18 @@ public class ListaPartida{
     public boolean verificarRole(NoDuplamente y){
       int[] roles =  new int[4];
       for(int i = 0; i < 5; i++){
-        switch (y.getJogador().getRole()) {
+        // switch (y.getJogador().getCharRole()) {
+        switch (primeiraLetra()) {
           case "T":
             roles[0] += 1;
             break;
           case "M":
             roles[1] += 1;
             break;
-          case "S":
+          case "C":
             roles[2] += 1;
             break;
-          case "J":
+          case "H":
             roles[3] += 1;
           break;
           default:
@@ -89,7 +90,7 @@ public class ListaPartida{
       partida[1][0] = y.getJogador();
       y = y.getProximo();
       if(primeiraValidacaoDistribuirJogadores(partida, y)){
-        if(partida[0][0].getRole() != y.getJogador().getRole() && partida[0][1].getRole() != y.getJogador().getRole()){
+        if(partida[0][0].getCharRole() != y.getJogador().getCharRole() && partida[0][1].getCharRole() != y.getJogador().getCharRole()){
           partida[0][2] = y.getJogador();
           partida[1][2] = y.getProximo().getJogador();
         }else{
@@ -100,10 +101,10 @@ public class ListaPartida{
       return partida;
     }
     public boolean primeiraValidacaoDistribuirJogadores(Jogador[][] partida, NoDuplamente y){
-      while(partida[0][1].getRole() != y.getJogador().getRole()){
-        if(partida[0][0].getRole() != y.getJogador().getRole()){
+      while(partida[0][1].getCharRole() != y.getJogador().getCharRole()){
+        if(partida[0][0].getCharRole() != y.getJogador().getCharRole()){
           partida[0][1] = y.getJogador();
-          if(partida[1][0].getRole() != y.getProximo().getJogador().getRole()){
+          if(partida[1][0].getCharRole() != y.getProximo().getJogador().getCharRole()){
            partida[1][1] = y.getProximo().getJogador();
            y = y.getProximo().getProximo();
            return true;
@@ -122,7 +123,7 @@ public class ListaPartida{
     }
 }
     
-      // if(partida[0][0].getRole() != y.getJogador().getRole()){
+      // if(partida[0][0].getCharRole() != y.getJogador().getRole()){
       //   partida[0][1] = y.getJogador();
       //   y = y.getProximo();
       //   if (partida[0][0].getRole() != y.getJogador().getRole()) && (partida[0][1].getRole() != y.getJogador().getRole()){
