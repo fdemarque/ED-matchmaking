@@ -14,7 +14,7 @@ public class Arquivo {
                 String[] partes = linha.split(";");
                 int numero = Integer.parseInt(partes[0]);
                 String tipo = partes[1];
-                int pontuacao = Integer.parseInt(partes[2]);
+                Double pontuacao = Double.parseDouble(partes[2]);
                 Jogador jogador = new Jogador(numero, tipo, pontuacao);
                 Lista.add(jogador);
                 ListaJogadores.setTamanho(1);
