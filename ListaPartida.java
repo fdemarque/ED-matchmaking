@@ -99,9 +99,14 @@ public class ListaPartida{
       y = y.getProximo();
       if(primeiraValidacaoDistribuirJogadores(time1, time2, y)){
             y = y.getProximo().getProximo();
-            if(time1.getJogador1().getRole() != y.getJogador().getRole() && time1.getJogador2().getRole() != y.getJogador().getRole()){
-              time1.setJogador3(y.getJogador());
-              time2.setJogador3(y.getProximo().getJogador());
+            if(!time1.getJogador1().getRole().equals(y.getJogador().getRole()) && !time1.getJogador2().getRole().equals(y.getJogador().getRole())){
+              if(!time2.getJogador1().getRole().equals(y.getProximo().getJogador().getRole()) && !time2.getJogador2().getRole().equals(y.getProximo().getJogador().getRole())){
+                time1.setJogador3(y.getJogador());
+                time2.setJogador3(y.getProximo().getJogador());
+              }else{
+                time2.setJogador3(y.getJogador());
+                time1.setJogador3(y.getProximo().getJogador());
+              }
             }else{
               time2.setJogador3(y.getJogador());
               time1.setJogador3(y.getProximo().getJogador());
@@ -113,10 +118,10 @@ public class ListaPartida{
     }
     public boolean primeiraValidacaoDistribuirJogadores(Time time1, Time time2, NoDuplamente y){
         while(time1.getJogador2() != y.getJogador()){
-          if(time1.getJogador1().getRole() != y.getJogador().getRole()){
+          if(!time1.getJogador1().getRole().equals(y.getJogador().getRole())){
             time1.setJogador2(y.getJogador());
             y = y.getProximo();
-            if(time2.getJogador1().getRole() != y.getJogador().getRole()){
+            if(!time2.getJogador1().getRole().equals(y.getJogador().getRole())){
               time2.setJogador2(y.getJogador());
              return true;
             }else{
