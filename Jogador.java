@@ -61,7 +61,7 @@ public class Jogador {
     }
 
     public void credenciaisJogador(){
-        Utils.print("Olá, bem vindo ao O jogo, digite suas credenciais de jogador para começar uma partida:\n");
+        Utils.print("Olá, bem vindo ao MATCHMAKING , digite suas credenciais de jogador para começar uma partida:\n");
         Utils.print("Digite seu ID: ");
         this.ID = Utils.scanInt();
         String roleFormatada = "";

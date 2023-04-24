@@ -28,8 +28,9 @@ public class NoPartida{
     public void setProximo(NoPartida proximo){
        this.proximo = proximo;
     }
+    
     @Override
       public String toString() {
-         return "\nTime 1 - Habilidade"+ time1.getResultPoint() + "\n"+ time1 +"\n\n" + "\nTime 2 - Habilidade" + time2.getResultPoint() + "\n"+ time2 +"\n\n";
+         return "\nTime 1 - Habilidade "+ time1 +"\n\n" + "\nTime 2 - Habilidade "+ time2 +"\n\n";
   }
    }

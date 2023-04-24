@@ -92,7 +92,10 @@ public class ListaDupla{
          return true;
        }
    }
-   
+   public void removeXY(NoDuplamente x, NoDuplamente y){
+      x.getAnterior().setProximo(y.getProximo());
+      y.getProximo().setAnterior(x.getAnterior());
+   }
   /* public NoDuplamente getAt(int indiceProcurado){
       if(indiceProcurado > tamanho){
          System.out.println("Voce sabe contar");

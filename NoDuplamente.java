@@ -35,10 +35,5 @@ public class NoDuplamente{
    public void setProximo(NoDuplamente proximo){
       this.proximo = proximo;
    }
-   // @Override
-   // public String toString() {
-   //    return jogador + ", Habilidade: " + points;
-   //  }
-
-   
+ 
 }

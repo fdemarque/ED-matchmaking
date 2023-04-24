@@ -23,7 +23,7 @@ public class Principal{
                   lista.exibirTodos();
                   break;
                case 3:
-                  Partidas.iniciarPartida(lista, Partidas);
+                  Partidas.iniciarPartida(lista);
                   Partidas.exibirPartidas();
                   break;
                case 4:
