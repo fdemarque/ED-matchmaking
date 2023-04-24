@@ -100,7 +100,7 @@ public class ListaPartida{
       if(primeiraValidacaoDistribuirJogadores(time1, time2, y)){
       y = y.getProximo().getProximo();
           if(!time1.getJogador1().getRole().equals(y.getJogador().getRole()) && !time1.getJogador2().getRole().equals(y.getJogador().getRole())){
-             if(!time2.getJogador1().getRole().equals(y.getJogador().getRole()) && !time2.getJogador2().getRole().equals(y.getJogador().getRole())){
+             //if(!time2.getJogador1().getRole().equals(y.getJogador().getRole()) && !time2.getJogador2().getRole().equals(y.getJogador().getRole())){
              //simplesmente ele não esta parando nesse if, mesmo se a validação esta correta
                 if(!time2.getJogador1().getRole().equals(y.getProximo().getJogador().getRole()) && !time2.getJogador2().getRole().equals(y.getProximo().getJogador().getRole())){
                    time1.setJogador3(y.getJogador());
@@ -109,10 +109,6 @@ public class ListaPartida{
                    time2.setJogador3(y.getJogador());
                    time1.setJogador3(y.getProximo().getJogador());                     
                 }
-             }else{
-                time1.setJogador3(y.getJogador());
-                time2.setJogador3(y.getProximo().getJogador());
-             }
           }else{
               time2.setJogador3(y.getJogador());
               time1.setJogador3(y.getProximo().getJogador());
@@ -121,8 +117,7 @@ public class ListaPartida{
       time1.setResultPoint(time1.getJogador1().getPontuacaoHabilidade(), time1.getJogador2().getPontuacaoHabilidade(), time1.getJogador3().getPontuacaoHabilidade());
       time2.setResultPoint(time2.getJogador1().getPontuacaoHabilidade(), time2.getJogador2().getPontuacaoHabilidade(), time2.getJogador3().getPontuacaoHabilidade());
       add(time1, time2);
-      }
-      
+    }
     public boolean primeiraValidacaoDistribuirJogadores(Time time1, Time time2, NoDuplamente y){
        while(time1.getJogador2() != y.getJogador()){
           if(!time1.getJogador1().getRole().equals(y.getJogador().getRole())){
