@@ -98,40 +98,62 @@ public class ListaPartida{
       time2.setJogador1(y.getJogador());
       y = y.getProximo();
       if(primeiraValidacaoDistribuirJogadores(time1, time2, y)){
-            y = y.getProximo().getProximo();
-            if(time1.getJogador1().getRole() != y.getJogador().getRole() && time1.getJogador2().getRole() != y.getJogador().getRole()){
-              time1.setJogador3(y.getJogador());
-              time2.setJogador3(y.getProximo().getJogador());
-            }else{
+      y = y.getProximo().getProximo();
+          if(time1.getJogador1().getRole() != y.getJogador().getRole() && time1.getJogador2().getRole() != y.getJogador().getRole()){
+             if(time2.getJogador1().getRole() != y.getJogador().getRole() && time2.getJogador2().getRole() != y.getJogador().getRole()){
+             //simplesmente ele não esta parando nesse if, mesmo se a validação esta correta
+                if(time2.getJogador1().getRole() != y.getProximo().getJogador().getRole() && time2.getJogador2().getRole() != y.getJogador().getRole()){
+                   time2.setJogador3(y.getJogador());
+                   time1.setJogador3(y.getProximo().getJogador());
+                }else{
+                   time1.setJogador3(y.getJogador());
+                   time2.setJogador3(y.getProximo().getJogador());                     
+                }
+             }else{
+                time1.setJogador3(y.getJogador());
+                time2.setJogador3(y.getProximo().getJogador());
+             }
+          }else{
               time2.setJogador3(y.getJogador());
               time1.setJogador3(y.getProximo().getJogador());
-            }
+          }
       }
       time1.setResultPoint(time1.getJogador1().getPontuacaoHabilidade(), time1.getJogador2().getPontuacaoHabilidade(), time1.getJogador3().getPontuacaoHabilidade());
       time2.setResultPoint(time2.getJogador1().getPontuacaoHabilidade(), time2.getJogador2().getPontuacaoHabilidade(), time2.getJogador3().getPontuacaoHabilidade());
       add(time1, time2);
-    }
-    public boolean primeiraValidacaoDistribuirJogadores(Time time1, Time time2, NoDuplamente y){
-        while(time1.getJogador2() != y.getJogador()){
-          if(time1.getJogador1().getRole() != y.getJogador().getRole()){
-            time1.setJogador2(y.getJogador());
-            y = y.getProximo();
-            if(time2.getJogador1().getRole() != y.getJogador().getRole()){
-              time2.setJogador2(y.getJogador());
-             return true;
-            }else{
-              time1.setJogador3(y.getJogador());
-              time2.setJogador2(y.getProximo().getJogador());
-              time2.setJogador3(y.getProximo().getProximo().getJogador());
-             return false;
-            }
-          }else{
-            time2.setJogador2(y.getJogador());
-            y = y.getProximo();
-          }
-        }
-        return true;
       }
+      
+    public boolean primeiraValidacaoDistribuirJogadores(Time time1, Time time2, NoDuplamente y){
+       while(time1.getJogador2() != y.getJogador()){
+          if(time1.getJogador1().getRole() != y.getJogador().getRole()){
+             time1.setJogador2(y.getJogador());
+             y = y.getProximo();
+             if(time2.getJogador1().getRole() != y.getJogador().getRole()){
+                time2.setJogador2(y.getJogador());
+                return true;
+             }else{
+                time1.setJogador3(y.getJogador());
+                time2.setJogador2(y.getProximo().getJogador());
+                time2.setJogador3(y.getProximo().getProximo().getJogador());
+                return false;
+             }
+          }else{
+             time2.setJogador2(y.getJogador());
+             y = y.getProximo();
+             if(time1.getJogador1().getRole() != y.getJogador().getRole()){
+                time1.setJogador2(y.getJogador());
+                return true;
+             }else{
+                 time2.setJogador3(y.getJogador());
+                 time1.setJogador2(y.getProximo().getJogador());
+                 time1.setJogador3(y.getProximo().getProximo().getJogador());
+                 return false;
+             }
+          }
+       }
+       return true;
+    }
+   
       public void exibirPartidas(){
         int index = 0;
         for(NoPartida atual = cabeca.getProximo(); atual != cauda; atual = atual.getProximo()){
@@ -140,6 +162,4 @@ public class ListaPartida{
         System.out.println(atual);
         }
      }
-
   }
- 
