@@ -102,12 +102,12 @@ public class ListaPartida{
           if(time1.getJogador1().getRole() != y.getJogador().getRole() && time1.getJogador2().getRole() != y.getJogador().getRole()){
              if(time2.getJogador1().getRole() != y.getJogador().getRole() && time2.getJogador2().getRole() != y.getJogador().getRole()){
              //simplesmente ele não esta parando nesse if, mesmo se a validação esta correta
-                if(time2.getJogador1().getRole() != y.getProximo().getJogador().getRole() && time2.getJogador2().getRole() != y.getJogador().getRole()){
-                   time2.setJogador3(y.getJogador());
-                   time1.setJogador3(y.getProximo().getJogador());
-                }else{
+                if(time2.getJogador1().getRole() != y.getProximo().getJogador().getRole() && time2.getJogador2().getRole() != y.getProximo().getJogador().getRole()){
                    time1.setJogador3(y.getJogador());
-                   time2.setJogador3(y.getProximo().getJogador());                     
+                   time2.setJogador3(y.getProximo().getJogador());
+                }else{
+                   time2.setJogador3(y.getJogador());
+                   time1.setJogador3(y.getProximo().getJogador());                     
                 }
              }else{
                 time1.setJogador3(y.getJogador());
