@@ -1,6 +1,8 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class Arquivo {
     public static ListaDupla addJogadoresArquivo(ListaDupla ListaJogadores) {
@@ -22,5 +24,15 @@ public class Arquivo {
             System.out.println("Arquivo não encontrado.");
         }
         return Lista;
+    }
+
+    public static void salvarJogador(Jogador jogador) {
+        try {
+            FileWriter writer = new FileWriter("jogadores.usu", true);
+            writer.write(jogador.getID() + ";" + jogador.getRole() + ";" + jogador.getPontuacaoHabilidade() + "\n");
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

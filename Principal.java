@@ -18,6 +18,7 @@ public class Principal{
                case 1:
                   Jogador novoJogador = new Jogador();
                   lista.add(novoJogador);
+                  Arquivo.salvarJogador(novoJogador);
                   break;
                case 2:
                   lista.exibirTodos();
