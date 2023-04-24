@@ -6,6 +6,7 @@ public class Principal{
         int opcaoEscolhida = 0;
         //Ler o arquivo adiconar jogadores ma lista
         lista = Arquivo.addJogadoresArquivo(lista);
+        Partidas.iniciarPartida(lista);
        do{
          opcaoEscolhida = 0;
          Utils.println("---- MATCHMAKING MENU -----");
@@ -28,7 +29,7 @@ public class Principal{
                   Partidas.exibirPartidas();
                   break;
                case 4:
-                  Utils.println("Obrigado por jogar 'O jogo'.");
+                  Utils.println("Obrigado por jogar MATCHMAKING.");
                   break;
                
                default:
