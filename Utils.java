@@ -18,24 +18,20 @@ public abstract class Utils{
         return valor;
     }
     public static double scanDouble(){
-        double valor = scan.nextDouble();
-        //scan.nextLine();        
+        double valor = scan.nextDouble();      
         return valor;
 
     }
     public static boolean scanBoolean(){
-        boolean valor = scan.nextBoolean();
-        //scan.nextLine();        
+        boolean valor = scan.nextBoolean();     
         return valor;
     }
     public static float scanFloat(){
-        float valor = scan.nextFloat();
-        //scan.nextLine();        
+        float valor = scan.nextFloat();     
         return valor;
     }
     public static String scanLine(){
-        String valor = scan.nextLine();
-        //scan.nextLine();        
+        String valor = scan.nextLine();    
         return valor;
     }
 }

@@ -4,7 +4,6 @@ public class Principal{
         ListaDupla lista = new ListaDupla();
         ListaPartida Partidas = new ListaPartida();
         int opcaoEscolhida = 0;
-        //Ler o arquivo adiconar jogadores ma lista
         lista = Arquivo.addJogadoresArquivo(lista);
         Partidas.iniciarPartida(lista);
        do{
